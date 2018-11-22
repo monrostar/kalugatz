@@ -1,0 +1,7 @@
+{
+    "phpcs.standard": "PSR2",
+    "phpcs.enable": true,
+    "php.validate.executablePath": "C:/Dev/php-7.2.6",
+    "phpcs.executablePath": "C:\\Users\\nitse\\AppData\\Roaming\\Composer\\vendor\\squizlabs\\php_codesniffer\\bin\\phpcs.bat",
+    "phpcs.autoConfigSearch": true
+}
