@@ -9,21 +9,36 @@ use App\Sorter\LetterSortBehavior;
 class SorterTest extends TestCase
 {
     /**
-     * @dataProvider additionProvider
+     * @dataProvider additionProviderGood
      */
-    public function testLetterSortBehavior($string, $expected)
+    public function testLetterSortBehaviorGood($string, $expected)
     {
         $sorter = new Sorter(new LetterSortBehavior());
         $this->assertEquals($expected, $sorter->sort($string));
     }
 
-    public function additionProvider()
+    /**
+     * @dataProvider additionProviderBad
+     */
+    public function testLetterSortBehaviorBad($string, $expected)
+    {
+        $sorter = new Sorter(new LetterSortBehavior());
+        $this->assertNotEquals($expected, $sorter->sort($string));
+    }
+
+    public function additionProviderGood()
     {
         return [
             ["лимон апельсин банан яблоко", "илмно аеилнпсь аабнн бклооя"],
-            ["Тут кваказябра", "Ой ошибка"],
             ["lemon orange banana apple", "elmno aegnor aaabnn aelpp"],
             ["αβγαβγ αβγαβγαβγ", "ααββγγ αααβββγγγ"],
+        ];
+    }
+
+    public function additionProviderBad()
+    {
+        return [
+            ["Тут кваказябра", "Ой ошибка"],
             ["Тут тоже кваказябра", "Тут тоже кваказябра"],
         ];
     }
